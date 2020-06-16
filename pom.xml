@@ -74,6 +74,11 @@
 			<artifactId>twilio</artifactId>
 			<version>7.41.2</version>
 		</dependency>	
+		<dependency>
+    <groupId>org.flywaydb</groupId>
+    <artifactId>flyway-core</artifactId>
+    <version>6.3.2</version>
+</dependency>
 
 	</dependencies>
 	
@@ -109,12 +114,26 @@
 			    <artifactId>sonar-maven-plugin</artifactId>
 			    <version>3.7.0</version>
 			</plugin>
+			
+			<plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>6.3.2</version>
+                <configuration>
+                    <url>jdbc:mysql://3.135.204.56:3306</url>
+                    <user>flyuser</user>
+                    <password>H@ckath0n</password>
+                    <schemas>
+                      <schema>flydb</schema>
+                     </schemas>
+                    </configuration>
+                  </plugin>
 		</plugins>
 	</build>
 	<distributionManagement>
                 <snapshotRepository>
                 <id>nexus</id>
-                <url>http://3.15.202.216:8081/nexus/content/repositories/snapshots</url>
+                <url>http://3.135.204.56:8081/nexus/content/repositories/snapshots</url>
                 </snapshotRepository>
                 </distributionManagement>
 </project>
